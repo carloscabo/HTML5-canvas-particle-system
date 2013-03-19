@@ -3,7 +3,7 @@ HTML5-canvas-particle-system
 
 Basic particle system done in HTML5 / Canvas / Javascript
 
-![Alt text](/img/sample.jpg "Optional title")
+![Particle system](/img/sample.png "Particle system")
 
 This is a pre-release, some parts are still unfinished or are buggy (specially the friction part).
 
@@ -20,7 +20,7 @@ I think the best way to understand all the parameters is playing with them at: <
 
 But for the record a little explanation:
 
-  
+```
   var ps_options = {
       // Particle system settings.
       // Max number of simultaneous particles "alive" (see below)
@@ -80,3 +80,4 @@ But for the record a little explanation:
   
   // Draw it!
   ps.render();
+```
