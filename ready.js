@@ -111,8 +111,8 @@ var ps4_options = {
 
     // Particles only
     velo: {
-      x: { min: -2, max: 2 },
-      y: { min: -2, max: 2 }
+      x: { min: -3, max: 3 },
+      y: { min: -3, max: 3 }
     },
     acel: { x: 0, y: 0 },
     angl: {
@@ -120,9 +120,9 @@ var ps4_options = {
       max: 9,
       dec: 0.05
     },
-    f__c: 0,
+    f__c: 0.001,
     life: 1000,
-    rate: 1
+    rate: 0
 };
 ps.push (new ParticleSystem (ps4_options));
 
@@ -237,7 +237,13 @@ function draw() {
   ctx.fillRect(0, 0, ww, wh);
 
   for (var i = ps.length - 1; i >= 0; i--) {
-    ps[i].render();
+    if (ps[i].particles.length == 0 && ps[i].set.plimit == 0) {
+      console.log('Dead!');
+      ps.splice(i, 1); // Delete particle system
+    } else {
+      ps[i].render();
+
+    }
   };
 } //DRAW
 

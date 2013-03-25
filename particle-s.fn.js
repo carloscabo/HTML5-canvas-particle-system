@@ -169,7 +169,8 @@ function ParticleSystem (opt) {
   // PS Default settings
   this.set = {
     // Particle system
-    pnum: 20,
+    pnum: 20, // Simultaneous particles
+    //plimit: 2000, // Will dead afer this are emited
     posi: new PVector(0, 0),
     bounds: [ -9999, -9999, 9999, 9999 ],
     // Particle only
@@ -200,13 +201,19 @@ ParticleSystem.prototype.debug = function (message) {
 
 ParticleSystem.prototype.init = function () {
   // Timer
-  var self = this;
-  this.timer = setInterval(function() { self.addP(); }, self.set.rate);
 
-  // Initial particles
-  /*for (var i = this.set.pnum - 1; i >= 0; i--) {
-    this.addP();
-  };*/
+  // Initial particles if rate = 0
+  // All particles released
+  if (this.set.rate == 0) {
+    for (var i = this.set.pnum - 1; i >= 0; i--) {
+      this.addP();
+    }
+    this.set.plimit = 0;
+  } else {
+    var self = this;
+    this.timer = setInterval(function() { self.addP(); }, self.set.rate);
+    this.set.plimit--;
+  }
 };
 
 // Add particle to system

@@ -1,4 +1,4 @@
-- Revisar la copia de objetos del settings
+ ✔ - Revisar la copia de objetos del settings @done (13-03-26 00:06)
 - Personalizar la función de pintado de partículas
-- Hacer que el PS se auto-mate cuando haya emitido todas las partículas
-- Si el creation_rate es 0 que las emita todas de una vez
+ ✔ - Hacer que el PS se auto-mate cuando haya emitido todas las partículas @done (13-03-26 00:06)
+ ✔ - Si el creation_rate es 0 que las emita todas de una vez @done (13-03-26 00:06)
